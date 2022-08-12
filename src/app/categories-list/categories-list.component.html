@@ -1,0 +1,29 @@
+<body class="body">
+
+    <!-- <div>
+      <button type="submit" class="add-btn">+</button>
+    </div> -->
+    <div class="main-container" *ngFor="let group of categories" class="list-item">
+  
+      <div class="main-header">
+        <h1>{{group.category_name}}</h1>
+        <div>
+            <a routerLink="/edit-category/{{group._id}}">edit</a>
+            <button (click)="removeGroup(group._id)">edit</button>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!-- Colletions
+        - Item
+           - Category
+           - Price
+           - Amount
+  
+        - Category
+           - Name -->
+  
+  
+  </body>
+  

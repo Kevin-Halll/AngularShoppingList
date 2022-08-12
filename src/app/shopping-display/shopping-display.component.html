@@ -16,7 +16,8 @@
           <p>Quantity: {{item.quantity}}</p>
           <p>Price: {{item.price}}</p>
           <div>
-            <button class="del-btn">X</button>
+            <button class="del-btn" (click)="removeItem(item._id)">X</button>
+            <a class="edit-btn" routerLink="/edit-item/{{item._id}}">edit</a>
           </div>
         </li>
       </ol>

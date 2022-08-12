@@ -1,0 +1,23 @@
+<div class="shopping">
+    <div class="shop-image">
+      <div class="shop-details">
+        <div class="heading">
+          <h1>Shopping List</h1>
+          <p>Edit This Categories</p>
+        </div>
+  
+      </div>
+  
+    </div>
+    <div class="shopping-form">
+      <!-- <form > -->
+      <form (submit)="onSubmit()" [formGroup]="addGroup" action="">
+        <h1>Edit this Category</h1>
+        <label for="">Category Name</label>
+        <input type="text" name="category_name" formControlName="category_name">
+        <button type="submit"  >Update Category</button>
+      </form>
+    </div>
+  </div>
+  
+  

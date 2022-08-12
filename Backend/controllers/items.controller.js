@@ -14,6 +14,15 @@ exports.getAllItems = async (req, res) => {
 	}
 }
 
+exports.getItemsById = async (req, res) => {
+	try {
+		const items = await Items.findById({_id:req.params.id})
+        JSONResponse.success(res, 'Success.', items, 200)
+	} catch (error) {
+		JSONResponse.error(res, "Failure handling item model.", error, 500)
+	}
+}
+
 /**
  * ### Description
  * Creating an item
@@ -21,6 +30,14 @@ exports.getAllItems = async (req, res) => {
 exports.createItem = async (req, res) => {
 	try {
 		const items = await Items.create(req.body)
+		JSONResponse.success(res, 'Success.', items, 200)
+	} catch (error) {
+		JSONResponse.error(res, "Failure handling item model.", error, 500)
+	}
+}
+exports.updateItem = async (req, res) => {
+	try {
+		const items = await Items.findByIdAndUpdate({_id:req.params.id},req.body)
 		JSONResponse.success(res, 'Success.', items, 200)
 	} catch (error) {
 		JSONResponse.error(res, "Failure handling item model.", error, 500)

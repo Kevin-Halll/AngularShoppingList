@@ -5,6 +5,7 @@ import { ShoppingListServiceService } from '../shopping-list-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Category } from '../Models/interfaces';
 
 @Component({
   selector: 'app-shopping-add',
@@ -14,6 +15,8 @@ import { Router } from '@angular/router';
 export class ShoppingAddComponent implements OnInit {
 
   addList:any;
+  categories:Category[] = [];
+
   constructor( private ShoppingListServiceService:ShoppingListServiceService,
     private fb:FormBuilder,
     private routes:Router,) {
@@ -28,7 +31,9 @@ export class ShoppingAddComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
+    this.ShoppingListServiceService.getAllGroups().subscribe(results => {
+      this.categories = results.data
+    })
   }
   onSubmit() {
 
